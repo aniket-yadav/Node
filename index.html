@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Let's Chat</title>
+      <style type="text/css">
+      	.container{
+      		text-align: center;
+      		
+      	}
+      	ul,li{
+      		text-align: left;
+
+      	}
+      </style>
+      <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   </head>
+   
+   <script src = "/socket.io/socket.io.js"></script>
+   <script>
+      var socket = io();
+      function setUsername() {
+         socket.emit('setUsername', document.getElementById('name').value);
+      };
+      var user;
+      socket.on('userExists', function(data) {
+         document.getElementById('error-container').innerHTML = data;
+      });
+      socket.on('userSet', function(data) {
+         user = data.username;
+         document.body.innerHTML = '<div class="container"><input type = "text" id = "message" autocomplete="off">\
+         <button type = "button" name = "button" onclick = "sendMessage()">Send</button>\
+         <div id = "message-container"> <ul id="mess">    </ul></div></div>';
+      });
+      function sendMessage() {
+         var msg = document.getElementById('message').value;
+         if(msg) {
+            socket.emit('msg', {message: msg, user: user});
+         }
+      }
+      
+      socket.on('newmsg', function(messages) {
+        var m='';
+         for(var i=0;i<messages.length;i++){
+         	m=m+'<li style="list-style-type:none"><b>'+messages[i].user+'</b> : '+messages[i].message+'</li>';
+         }
+         document.getElementById('mess').innerHTML=m;
+
+      })
+  
+   </script>
+   
+   <body>
+   	<div class="container">
+      <div id = "error-container"></div>
+      <input id = "name" type = "text" name = "name" value = "" 
+         placeholder = "Enter your name!">
+      <button type = "button" name = "button" onclick = "setUsername()">
+         Let me chat!
+      </button>
+  </div>
+   </body>
+</html>
