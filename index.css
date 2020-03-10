@@ -1,0 +1,239 @@
+*{
+margin:0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html,body{
+   height: 100%;
+   margin:0;
+}
+/* container  */
+#container{
+   position: absolute;
+   margin: 5px;
+   width: 100%;
+   height: 100%;
+   min-width: 630px;
+
+}
+ 
+/* left part  */
+.left{
+position: absolute;
+left: 0;
+top: 0;
+width: 30%;
+padding-right: 5px;
+}
+
+#appname{
+   text-align: center;
+   color:rgb(94,208,223);
+   font-size: 40px;
+
+}
+
+#username{
+   position:absolute;
+   color:rgb(11,111,122);
+   font-size: 40px;
+   left: 20%;
+   top: 200%;
+   width: 60px;
+   overflow: visible;
+
+}
+/* right part  */
+.right{
+position: absolute;
+top: 0;
+right: 0;
+width: 70%;
+padding-left: 5px;
+
+}
+
+/* divider */
+#vertical{
+   width: 1px;
+   border:1px solid dodgerblue;
+   height: 100%;
+   position: absolute;
+   left: 30%;
+}
+
+/* page entry  name panel */
+.container1{
+position: absolute;
+box-sizing: border-box;
+display: block;
+border:none;
+top: 50%;
+left: 50%;
+width: 70%;
+padding: 20px;
+transform: translate(-45%,250%);
+background-color:  #80ffff;
+box-shadow: 0 5px 10px rgb(0,0,0,.2);
+}
+
+.container1 #error-container{
+   color: red;
+}
+.container1 #name{
+   box-sizing: border-box;
+   width: 70%;
+   padding: 10px;
+   font-size: 18px;
+   font-family: fantasy;
+   letter-spacing: 2px;
+}
+
+.container1 #entbtn{
+   box-sizing: border-box;
+   padding: 5px;
+   width: 90px;
+   font-size: 20px; 
+   background-color: rgb(204, 109, 108);
+   color: #eae6ca;
+   font-weight: bold;
+   text-decoration: none;
+}
+/* chat panel */
+.container2{
+position: absolute;
+left: 50%;
+width: 70%;
+bottom: 0;
+right: 0;
+height: 610px;
+transform: translate(-45%,100%);
+box-sizing: border-box;
+padding: 10px;
+display: none;
+box-shadow: 0 5px 10px rgb(0,0,0,.2);
+}
+
+
+#mess{
+   margin-top: 10px;
+}
+#mess div  {
+list-style-type: none;
+width: 50%;
+font-size: 18px;
+}
+
+#mymsg{
+   background-color: green;
+   border-radius: 10px;
+   text-align: center;
+   margin-right: 10px;
+
+}
+#othermsg{
+   background-color: rgb(255, 255, 255);
+   border-radius: 10px;
+   text-align: center;
+   margin-left: 10px;
+}
+#message{
+width: 80%;
+position: fixed;
+bottom: 0;
+height: 9%;
+font-size: 16px;
+padding-left: 10px;
+letter-spacing: 1px;
+box-sizing: border-box;
+border:2px solid #f7497d;
+}
+#message:focus{
+border:2px solid #f7497d;
+}
+
+#send{
+position: fixed;
+bottom: 0;
+box-sizing: border-box;
+right: 2%;
+width: 16%;
+height: 9%;
+min-height: 50px;
+min-width:55px;
+font-size: 150%;
+background-color: rgb(66,133,244);
+color: #fff;
+}
+
+#message-container{
+position: absolute;
+overflow-y: scroll;
+overflow-x: hidden;
+background:#cceeff;
+width: 96%;
+height: 88%;
+}
+#message-container::-webkit-scrollbar{
+display: none;
+}
+
+@media screen and (max-width: 450px){
+   .left{
+      width: 100%;
+      height: 15%;
+   }
+   #vertical{
+   width: 100%;
+   height: 1px;
+   margin-top: 5px;
+   top: 13%;
+   left: 0;
+
+   }
+   .right{
+      width: 100%;
+      top:15%;
+      height: 100%;
+      min-height: 900px;
+      position: absolute;
+      text-align: center;
+
+   }
+
+   #username{
+      display: none;
+   }
+   .container2{
+      position: relative;
+      width: 100%;
+
+      left: 50%;
+      transform: translate(-50%);
+      height: 100%;
+
+   }
+   .container1{
+      width: 90%;
+      top:50%;
+      z-index: 1;
+      transform: translate(-50%,0%);
+
+   }
+#message-container{
+   height: 88%;
+}
+#message{
+   bottom: 0;
+   left: 0;
+   font-size: 20px;
+   margin-bottom: 20px;
+
+}
+#send{
+   margin-top: 3px;
+   margin-bottom: 20px;
+}
+
+}
